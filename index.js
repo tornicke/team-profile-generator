@@ -109,7 +109,10 @@ function generateHtml() {
       <title>My Team</title>
     </head>
     <body>
-    <header>
+    <header       
+    id="header"
+    class="o-container o-container--large o-container--medium o-container--small o-container--xsmall"
+    >
         <h1 class="c-heading u-large" style="text-align: center" id="headerTitle">
         My Team
         </h1>
