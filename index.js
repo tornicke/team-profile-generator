@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
 const questions = [
   {
@@ -37,6 +39,10 @@ const init = () => {
         internFunction();
         break;
 
+      //case "Quit": //! or add it to the below case?
+      //quitFunction();
+      // break;
+
       case "Quit":
         inProgress = false;
         break;
@@ -55,14 +61,29 @@ teamMembers = [];
 function engineerFunction() {
   inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
     console.log(engineerAnswers);
-    const eng = new Engineer(engineerAnswers.engineerName); //! continue adding others (engineerAnswers.engineerId, etc.)
-    teamMebmers.push(eng);
+    const addedEngineer = new Engineer(engineerAnswers.engineerName); //! continue adding others (engineerAnswers.engineerId, etc.)
+    teamMembers.push(addedEngineer);
     init();
   });
 }
 
-//! function for manager
-//! function for intern
+function managerFunction() {
+  inquirer.prompt(managerQuestions).then((managerAnswers) => {
+    console.log(managerAnswers);
+    const addedManager = new Manager(managerAnswers.managerName); //! continue adding others (engineerAnswers.engineerId, etc.)
+    teamMembers.push(addedManager);
+    init();
+  });
+}
+
+function internFunction() {
+  inquirer.prompt(internQuestions).then((internAnswers) => {
+    console.log(internAnswers);
+    const addedIntern = new Intern(internAnswers.internName); //! continue adding others (engineerAnswers.engineerId, etc.)
+    teamMembers.push(addedIntern);
+    init();
+  });
+}
 
 function quitFunction() {
   const htmlTemplate = generateHtml();
@@ -78,7 +99,7 @@ function generateHtml() {
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>Your Team</title>
     </head>
     <body></body>
   </html>
