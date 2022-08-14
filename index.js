@@ -39,13 +39,14 @@ const init = () => {
         internFunction();
         break;
 
-      //case "Quit": //! or add it to the below case?
-      //quitFunction();
-      // break;
-
-      case "Quit":
+      case "Quit": //! or add it to the below case?
+        quitFunction();
         inProgress = false;
         break;
+
+      //case "Quit":
+      //inProgress = false;
+      //break;
 
       default:
         inProgress = false;
@@ -85,13 +86,15 @@ function internFunction() {
   });
 }
 
+const fs = require("fs");
+
 function quitFunction() {
   const htmlTemplate = generateHtml();
   fs.writeFile(`./dist/index.html`, htmlTemplate, (err) =>
     err ? console.log(err) : console.log("Your page was generated.")
   );
 }
-//! add the HTML structure
+//HTML structure that will be populated by user input
 function generateHtml() {
   return `<!DOCTYPE html>
   <html lang="en">
@@ -99,9 +102,22 @@ function generateHtml() {
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Your Team</title>
+      <link
+      rel="stylesheet"
+      href="https://unpkg.com/@blaze/css@x.x.x/dist/blaze/blaze.css"/>
+      <link rel="stylesheet" href="./dist/styles.css" />
+      <title>My Team</title>
     </head>
-    <body></body>
+    <body>
+    <header>
+        <h1 class="c-heading u-large" style="text-align: center" id="headerTitle">
+        My Team
+        </h1>
+    </header>
+    
+    
+    
+    </body>
   </html>
   `;
 }
