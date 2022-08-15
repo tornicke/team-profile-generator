@@ -44,14 +44,14 @@
 
 <h2>Screenshot (tests)</h2>
 
-![image](https://github.com/tornicke/professional-readme-generator/blob/main/Assets/images/Screenshot-index.png)
+![image](https://github.com/tornicke/team-profile-generator/blob/main/src/Screenshot_tests.png)
 
 <h2>Screenshot (commands)</h2>
 
-![image](https://github.com/tornicke/professional-readme-generator/blob/main/Assets/images/Screenshot-index.png)
+![image](https://github.com/tornicke/team-profile-generator/blob/main/src/Screenshot_team_profile_generator.png)
 
 <h2>Required URLs:</h2>
 
-[Walkthrough Video URL](https://drive.google.com/file/d/1Fx-B-us0Vq4NVm0PG1F13R-j7Vno2pow/view?usp=sharing)
+[Walkthrough Video URL](https://drive.google.com/file/d/1wskmt3TITIJmHrpjysrIxfefI2p2IxXd/view?usp=sharing)
 
 [GitHub repository URL](https://github.com/tornicke/team-profile-generator)
