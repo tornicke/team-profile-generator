@@ -32,7 +32,7 @@ const managerQuestions = [
   {
     name: "managerOfficeNumber",
     type: "input",
-    message: "Type in the Engineer's office number",
+    message: "Type in the Manager's office number",
   },
 ];
 
@@ -88,12 +88,12 @@ const init = () => {
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
     switch (answers.position) {
-      case "Engineer":
-        engineerFunction();
-        break;
-
       case "Manager":
         managerFunction();
+        break;
+
+      case "Engineer":
+        engineerFunction();
         break;
 
       case "Intern":
@@ -198,7 +198,7 @@ function generateHtml() {
         </h1>
     </header>
     
-    <p>${JSON.stringify(teamMembers)}</p> 
+    ${JSON.stringify(teamMembers)}
  
     </body>
   </html>
