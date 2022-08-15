@@ -13,11 +13,72 @@ const questions = [
   },
 ];
 
+const managerQuestions = [
+  {
+    name: "managerName",
+    type: "input",
+    message: "Type in the Manager's name",
+  },
+  {
+    name: "managerId",
+    type: "input",
+    message: "Type in the Manager's ID",
+  },
+  {
+    name: "managerEmail",
+    type: "input",
+    message: "Type in the Manager's email",
+  },
+  {
+    name: "managerOfficeNumber",
+    type: "input",
+    message: "Type in the Engineer's office number",
+  },
+];
+
 const engineerQuestions = [
   {
     name: "engineerName",
     type: "input",
     message: "Type in the Engineer's name",
+  },
+  {
+    name: "engineerId",
+    type: "input",
+    message: "Type in the Engineer's ID",
+  },
+  {
+    name: "engineerEmail",
+    type: "input",
+    message: "Type in the Engineer's email",
+  },
+  {
+    name: "engineerGithub",
+    type: "input",
+    message: "Type in the Engineer's GitHub username",
+  },
+];
+
+const internQuestions = [
+  {
+    name: "internName",
+    type: "input",
+    message: "Type in the Intern's name",
+  },
+  {
+    name: "internId",
+    type: "input",
+    message: "Type in the Intern's ID",
+  },
+  {
+    name: "internEmail",
+    type: "input",
+    message: "Type in the Intern's email",
+  },
+  {
+    name: "internSchool",
+    type: "input",
+    message: "Type in the Intern's school name",
   },
 ];
 
@@ -41,7 +102,7 @@ const init = () => {
 
       case "Quit": //! or add it to the below case?
         quitFunction();
-        inProgress = false;
+        inProgress = false; //! Is this still necessary?
         break;
 
       //case "Quit":
@@ -57,30 +118,49 @@ const init = () => {
 
 init();
 
+//empty array for team members (all added profiles)
 teamMembers = [];
 
-function engineerFunction() {
-  inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
-    console.log(engineerAnswers);
-    const addedEngineer = new Engineer(engineerAnswers.engineerName); //! continue adding others (engineerAnswers.engineerId, etc.)
-    teamMembers.push(addedEngineer);
-    init();
-  });
-}
-
+//"addedManager" includes Manager-specific details
 function managerFunction() {
   inquirer.prompt(managerQuestions).then((managerAnswers) => {
     console.log(managerAnswers);
-    const addedManager = new Manager(managerAnswers.managerName); //! continue adding others (engineerAnswers.engineerId, etc.)
+    const addedManager = new Manager(
+      managerAnswers.managerName,
+      managerAnswers.managerId,
+      managerAnswers.managerEmail,
+      managerAnswers.managerOfficeNumber
+    );
     teamMembers.push(addedManager);
     init();
   });
 }
 
+//"addedEngineer" includes Engineer-specific details
+function engineerFunction() {
+  inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
+    console.log(engineerAnswers);
+    const addedEngineer = new Engineer(
+      engineerAnswers.engineerName,
+      engineerAnswers.engineerId,
+      engineerAnswers.engineerEmail,
+      engineerAnswers.engineerGithub
+    );
+    teamMembers.push(addedEngineer);
+    init();
+  });
+}
+
+//"addedIntern" includes Intern-specific details
 function internFunction() {
   inquirer.prompt(internQuestions).then((internAnswers) => {
     console.log(internAnswers);
-    const addedIntern = new Intern(internAnswers.internName); //! continue adding others (engineerAnswers.engineerId, etc.)
+    const addedIntern = new Intern(
+      internAnswers.internName,
+      internAnswers.internId,
+      internAnswers.internEmail,
+      internAnswers.internGithub
+    );
     teamMembers.push(addedIntern);
     init();
   });
@@ -118,8 +198,8 @@ function generateHtml() {
         </h1>
     </header>
     
-    
-    
+    <p>${JSON.stringify(teamMembers)}</p> 
+ 
     </body>
   </html>
   `;

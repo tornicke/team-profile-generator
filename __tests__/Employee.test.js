@@ -30,9 +30,9 @@ describe("Employee", () => {
     const name = "Tom";
     const id = "3";
     const email = "tom@gmail.com";
+
     it("should return correct id", () => {
       const obj = new Employee(name, id);
-
       expect(obj.getId()).toEqual(id);
     });
 
@@ -48,7 +48,7 @@ describe("Employee", () => {
 
     it("should return correct role", () => {
       const obj = new Employee(name, id, email);
-      expect(obj.getRole()).toEqual("Employee");
+      expect(obj.getEmail()).toEqual(email);
     });
   });
 });
